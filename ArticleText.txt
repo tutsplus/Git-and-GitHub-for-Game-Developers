@@ -1,0 +1,139 @@
+"I'm sure Git is great, but it looks complicated - I'll stick with my current workflow" is like saying "I'm sure IDEs like FlashDevelop and Sublime Text are great, but they look complicated - I'll stick with Notepad". Yeah, sure, there's a bit of a learning curve, and you can live without it, but it's foolish to. In this article, I'll explain why Git (and GitHub) is so great, and show you how to get started quickly and easily.<!--more-->
+
+[tip]<p><strong>Note:</strong> A lot of what I say here applies to other version control systems, like Subversion, as well, but Git is so popular that if you have a free choice I recommend that's what you go with.</p>[/tip]
+
+<hr />
+<h2>What Git Can Do For You</h2>
+
+Git has advantages for all game developers, whether working solo or in a team. Let's go through the big ones:
+
+<h3>Git Lets You Undo Any Changes You Make</h3>
+
+Arguably the main point of Git is that it can take a "snapshot" of your entire game's working directory whenever you ask, and you can revert back to any of those snapshots at any time.
+
+This is a much better system than making a copy of your entire folder whenever you get a working version of the game, or emailing the code to yourself with a description so you don't lose it.
+
+Plus, you're not restricted to a straight line of undos and redos; you can split your project off into a separate <em>branch</em> of snapshots and swap between the branches at will. This means you can add new features to version 1.1, then switch back to v1.0 and apply a bugfix; or work on an experimental feature and scrap it if it doesn't work out; or keep your mobile and tablet versions separate yet together.
+
+<h3>Git Lets You Comment Your Work, Not Just Your Code</h3>
+
+Actually, Git doesn't just <em>let</em> you add comments - it encourages you to, even requires you to. Basically, whenever you save a snapshot, you write a comment describing the changes you made since the last snapshot. 
+
+Here are some example comments from <a href="http://www.mapeditor.org/">Tiled</a>, a great level editor that <a href="http://gamedev.tutsplus.com/tutorials/level-design/introduction-to-tiled-map-editor/">we've covered before</a>:
+
+<figure class="tutorial_image">
+<a href="https://github.com/bjorn/tiled/commits/master">
+<img src="http://cdn.tutsplus.com/gamedev.tutsplus.com/uploads/2013/09/TiledCommits.png" alt="TiledCommits" width="600" height="501" class="alignnone size-full wp-image-11517" />
+</a>
+</figure>
+
+Besides making it easier to find a particular point in a project's history (which is often useful for tracking down the cause of a bug), this also helps to build good development habits: you'll find yourself breaking work down into smaller tasks so that each part can be fully described in a short comment, rather than working on eight different things at once.
+
+<h3>Git Gives You Better Access to Other Projects</h3>
+
+So far, I've been talking about Git, which is just a software tool like Zip or email or FTP. <a href="http://github.com/">Git<em>Hub</em></a>, by contrast, is a website that can host your Git snapshots (and therefore your entire project).
+
+There are other Git hosting sites, and it's also possible to host your Git projects yourself on your own server, but GitHub is by far the most prominent. Think of it like Gmail: that's not the only web-based email app, but for many people it might as well be.
+
+Many games and gamedev tools are publicly available on GitHub, such as <a href="https://github.com/bjorn/tiled">Tiled</a> (which I mentioned above) and <a href="https://github.com/PrimaryFeather/Starling-Framework">the Starling Framework</a> (which <a href="http://gamedev.tutsplus.com/articles/how-to-learn/how-to-learn-starling-framework/">we also covered before</a>). This means that, rather than just downloading the current version of Starling Framework as a zip file and extracting it to your project, you can import the whole folder into your project and keep it automatically updated whenever there's a change.
+
+You can also suggest new features or report bugs via the <a href="https://github.com/PrimaryFeather/Starling-Framework/issues">issues tracker</a>:
+
+<figure class="tutorial_image">
+<a href="https://github.com/PrimaryFeather/Starling-Framework/issues"><img src="http://cdn.tutsplus.com/gamedev.tutsplus.com/uploads/2013/09/StarlingIssues.png" alt="StarlingIssues" width="600" height="226" class="alignnone size-full wp-image-11519" /></a>
+</figure>
+
+You can even create a local copy (a "fork") of the project, add the new feature or fix the bug yourself, and submit the snapshot back to the owners of the project to consider merging in with the main version.
+
+(You may have noticed that we've started hosting more of our source files on GitHub across Tuts+ - this is largely why!)
+
+<h3>Git Makes It Easier to Work With Other Developers</h3>
+
+All the reasons above make Git very valuable for solo developers. But many of these benefits are inherently also handy when working in a team:
+
+<ul>
+<li>Committing to a team project via Git (whether through GitHub's premium private plans or some other hosting method) is a lot easier than sharing everything via email attachments or Dropbox.</li>
+<li>Since every snapshot added to the project is marked with a comment and author, it's easy to track who did what.</li>
+<li>Each team member can work on their own code individually, and only commit it to the master project when it's ready (thus avoiding breaking anything).</li>
+</ul>
+
+Git also has features for "merging" different bits of code together, forcing you to deal with any clashes rather than just blindly overwriting parts of the project.
+
+<hr />
+<h2>Setting Up Git</h2>
+
+Installing Git and setting it up used to be a convoluted affair involving using the command line to generate "SSH keys" and <em>ugh</em>. But now it's really simple: all you have to do is download and install <a href="http://windows.github.com/">GitHub for Windows</a> or <a href="http://mac.github.com/">GitHub for Mac</a>, as appropriate.
+
+Yes, yes, I know, I said GitHub is a website for hosting Git snapshots, but here I am telling you to install GitHub to use Git. It's confusing: GitHub-the-app is software that installs Git and gives you a pleasant interface for it, while also giving you the option to host your snapshots on GitHub-the-website.
+
+Don't worry about it. Just download the version for your OS and install it. Er, unless you use Linux, in which case I'm afraid you <em>do</em> need to <a href="https://help.github.com/articles/set-up-git#platform-linux">go the convoluted route</a>.
+
+<hr />
+<h2>Getting Started With Git</h2>
+
+I'll walk you through setting up Git for whatever game or project you're currently working on, so you can start using it for real, rather than as some fake exercise. I'm using GitHub for Windows, but the steps will be very similar in GitHub for Mac. I'm also pretending that <a href="http://www.bfxr.net/">bfxr</a> is my project that I'm working on, which it totally is not.
+
+Open GitHub for Windows and click <strong>create</strong> to start making a new "repo" (short for "repository" - basically, the place where all your snapshots for this game or project are stored). Enter a name and a description for your project, and leave the directory as its default (you don't need to make this match your project's existing directory). Make sure <strong>Push to github</strong> is not ticked.
+
+<figure class="tutorial_image">
+<img src="http://cdn.tutsplus.com/gamedev.tutsplus.com/uploads/2013/09/Git_and_GitHub_for_Game_Developers_CreateNewRepo.jpg" alt="Git_and_GitHub_for_Game_Developers_CreateNewRepo" width="600" height="576" class="alignnone size-full wp-image-11530" />
+</figure>
+
+Double-click your newly-created repo to open it in the app:
+
+<figure class="tutorial_image">
+<img src="http://cdn.tutsplus.com/gamedev.tutsplus.com/uploads/2013/09/Git_and_GitHub_for_Game_Developers_SelectNewRepo.jpg" alt="Git_and_GitHub_for_Game_Developers_SelectNewRepo" width="600" height="576" class="alignnone size-full wp-image-11527" />
+</figure>
+
+You'll see that it tells you there are two files to be "committed" (that is, to be added to the repo as a snapshot); these are regular Git setup files, so type a bland comment in the <strong>Commit Message</strong> box and hit <strong>Commit</strong>:
+
+<figure class="tutorial_image">
+<img src="http://cdn.tutsplus.com/gamedev.tutsplus.com/uploads/2013/09/Git_and_GitHub_for_Game_Developers_FirstCommit_Cropped.jpg" alt="Git_and_GitHub_for_Game_Developers_FirstCommit_Cropped" width="600" height="300" class="alignnone size-full wp-image-11535" />
+</figure>
+
+Now, click <strong>tools > open in explorer</strong> to open Git's working directory for the project. It will be empty apart from the two setup files (and a hidden <strong>.git</folder>, which you may or may not be able to see):
+
+<figure class="tutorial_image">
+<img src="http://cdn.tutsplus.com/gamedev.tutsplus.com/uploads/2013/09/Git_and_GitHub_for_Game_Developers_EmptyDir.jpg" alt="Git_and_GitHub_for_Game_Developers_EmptyDir" width="519" height="169" class="alignnone size-full wp-image-11531" />
+</figure>
+
+Copy your entire project into this folder. (Yep, this is messy, but at least this way you can rest assured that you have a backup if something does go wrong.)
+
+<figure class="tutorial_image">
+<img src="http://cdn.tutsplus.com/gamedev.tutsplus.com/uploads/2013/09/Git_and_GitHub_for_Game_Developers_FullDir.jpg" alt="Git_and_GitHub_for_Game_Developers_FullDir" width="519" height="251" class="alignnone size-full wp-image-11534" />
+</figure>
+
+Go back to GitHub for Windows - it will notice that these new files just appeared:
+
+<figure class="tutorial_image">
+<img src="http://cdn.tutsplus.com/gamedev.tutsplus.com/uploads/2013/09/Git_and_GitHub_for_Game_Developers_FirstProperCommit.jpg" alt="Git_and_GitHub_for_Game_Developers_FirstProperCommit" width="600" height="576" class="alignnone size-full wp-image-11533" />
+</figure>
+
+Commit these files too, and you're all set with your basic first repo!
+
+Now make a change to your project. You could add a new file or modify an existing one:
+
+<figure class="tutorial_image">
+<img src="http://cdn.tutsplus.com/gamedev.tutsplus.com/uploads/2013/09/Git_and_GitHub_for_Game_Developers_NewFile.jpg" alt="Git_and_GitHub_for_Game_Developers_NewFile" width="519" height="272" class="alignnone size-full wp-image-11526" />
+</figure>
+
+Go back to GitHub for Windows, and it will have detected this, too. Commit this change, then select it from the <strong>unsynced commits</strong> list and hit <strong>revert commit</strong>. You'll now have a new commit that reverts the previous commit - this seems a little confusing, but it means you're keeping track of everything you're doing!
+
+<figure class="tutorial_image">
+<img src="http://cdn.tutsplus.com/gamedev.tutsplus.com/uploads/2013/09/Git_and_GitHub_for_Game_Developers_History.jpg" alt="Git_and_GitHub_for_Game_Developers_History" width="411" height="307" class="alignnone size-full wp-image-11525" />
+</figure>
+
+Check your actual project files:
+
+<figure class="tutorial_image">
+<img src="http://cdn.tutsplus.com/gamedev.tutsplus.com/uploads/2013/09/Git_and_GitHub_for_Game_Developers_FullDir.jpg" alt="Git_and_GitHub_for_Game_Developers_FullDir" width="519" height="251" class="alignnone size-full wp-image-11534" />
+</figure>
+
+Your new file (or the change you made to the other file) is indeed gone. You can revert the revert, if you like, adding yet another commit to your list, or <strong>roll back</strong> the commit to remove it from the list completely.
+
+<hr />
+<h2>Conclusion</h2>
+
+That's it? Yep. But also, nope. I've put <a href="https://github.com/tutsplus/Git-and-GitHub-for-Game-Developers">this entire article itself</a> on GitHub, so you can experiment with the site by requesting "enhancements" (suggestions for what you'd like to see added), and logging "bugs" (issues with the article). 
+
+If you're feeling really adventurous, try "forking" the article to your computer, making the additions yourself, and then submitting a pull request to get it added on the site... if none of that made sense to you, don't worry; a later revision will include more details!
