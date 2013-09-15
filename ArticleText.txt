@@ -91,7 +91,7 @@ You'll see that it tells you there are two files to be "committed" (that is, to 
 <img src="http://cdn.tutsplus.com/gamedev.tutsplus.com/uploads/2013/09/Git_and_GitHub_for_Game_Developers_FirstCommit_Cropped.jpg" alt="Git_and_GitHub_for_Game_Developers_FirstCommit_Cropped" width="600" height="300" class="alignnone size-full wp-image-11535" />
 </figure>
 
-Now, click <strong>tools > open in explorer</strong> to open Git's working directory for the project. It will be empty apart from the two setup files (and a hidden <strong>.git</folder>, which you may or may not be able to see):
+Now, click <strong>tools > open in explorer</strong> to open Git's working directory for the project. It will be empty apart from the two setup files (and a hidden <strong>.git</strong> folder, which you may or may not be able to see):
 
 <figure class="tutorial_image">
 <img src="http://cdn.tutsplus.com/gamedev.tutsplus.com/uploads/2013/09/Git_and_GitHub_for_Game_Developers_EmptyDir.jpg" alt="Git_and_GitHub_for_Game_Developers_EmptyDir" width="519" height="169" class="alignnone size-full wp-image-11531" />
